@@ -1,0 +1,21 @@
+{
+  "name": "discord-music-bot",
+  "version": "1.0.0",
+  "description": "Bot nhạc Discord đơn giản",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": ">=16.9.0"
+  },
+  "keywords": ["discord", "music", "bot"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "discord-player": "^6.6.7",
+    "@discord-player/extractor": "^4.4.7",
+    "dotenv": "^16.4.5"
+  }
+}
