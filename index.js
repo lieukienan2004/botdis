@@ -21,17 +21,11 @@ class MusicBot {
                 GatewayIntentBits.GuildVoiceStates
             ]
         });
-
-        // yt-dlp binary path
-        const ytDlpPath = path.join(__dirname, 'node_modules', '@distube', 'yt-dlp', 'bin', 'yt-dlp.exe');
-        console.log('yt-dlp path:', ytDlpPath);
-
         // Khởi tạo DisTube với cấu hình tối ưu cho v5
         this.distube = new DisTube(this.client, {
             plugins: [
                 new YtDlpPlugin({
-                    update: false,
-                    ytdlpPath: ytDlpPath
+                    update: true
                 })
             ],
             emitNewSongOnly: true,
