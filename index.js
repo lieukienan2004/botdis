@@ -259,7 +259,7 @@ class MusicBot {
         } catch (error) {
             console.error('Play error:', error);
             console.error('Error code:', error.errorCode);
-            message.reply('❌ Không thể phát bài hát này! Vui lòng thử bài khác.');
+            message.reply(`❌ Không thể phát bài hát này! Lỗi: ${error.errorCode || error.message}`);
         }
     }
 
