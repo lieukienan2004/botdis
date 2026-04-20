@@ -3,6 +3,7 @@ const { DisTube } = require('distube');
 const { YtDlpPlugin } = require('@distube/yt-dlp');
 const ffmpegInstaller = require('@ffmpeg-installer/ffmpeg');
 const path = require('path');
+const express = require('express');
 require('dotenv').config();
 
 // FFmpeg path for DisTube v5
@@ -35,6 +36,10 @@ class MusicBot {
             ],
             emitNewSongOnly: true,
             savePreviousSongs: true,
+            // Cấu hình không bao giờ tự động văng khỏi room
+            leaveOnEmpty: false,
+            leaveOnFinish: false,
+            leaveOnStop: false,
             // DisTube v5 yêu cầu truyền ffmpeg.path trực tiếp
             ffmpeg: {
                 path: FFMPEG_PATH,
@@ -456,6 +461,12 @@ class MusicBot {
     }
 
     setupKeepAlive() {
+        // TẠO WEB SERVER CHO RENDER
+        const app = express();
+        const port = process.env.PORT || 3000;
+        app.get('/', (req, res) => res.send('Bot nhạc đang hoạt động 24/7!'));
+        app.listen(port, () => console.log(`🌍 Web server đang chạy trên port ${port}`));
+
         if (process.env.KEEP_ALIVE === 'true') {
             setInterval(() => {
                 console.log('🔄 Keep alive ping...');
