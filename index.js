@@ -36,10 +36,6 @@ class MusicBot {
             ],
             emitNewSongOnly: true,
             savePreviousSongs: true,
-            // Cấu hình không bao giờ tự động văng khỏi room
-            leaveOnEmpty: false,
-            leaveOnFinish: false,
-            leaveOnStop: false,
             // DisTube v5 yêu cầu truyền ffmpeg.path trực tiếp
             ffmpeg: {
                 path: FFMPEG_PATH,
